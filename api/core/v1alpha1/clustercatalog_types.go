@@ -26,15 +26,17 @@ type SourceType string
 const (
 	SourceTypeImage SourceType = "image"
 
-	TypeUnpacked = "Unpacked"
-	TypeDelete   = "Delete"
+	TypeProgressing = "Progressing"
+	TypeServing     = "Serving"
 
-	ReasonUnpackPending       = "UnpackPending"
-	ReasonUnpacking           = "Unpacking"
-	ReasonUnpackSuccessful    = "UnpackSuccessful"
-	ReasonUnpackFailed        = "UnpackFailed"
-	ReasonStorageFailed       = "FailedToStore"
-	ReasonStorageDeleteFailed = "FailedToDelete"
+	// Serving reasons
+	ReasonAvailable   = "Available"
+	ReasonUnavailable = "Unavailable"
+
+	// Progressing reasons
+	ReasonSucceeded     = "Succeeded"
+	ReasonRetrying      = "Retrying"
+	ReasonUnrecoverable = "Unrecoverable"
 
 	MetadataNameLabel = "olm.operatorframework.io/metadata.name"
 )
@@ -43,6 +45,7 @@ const (
 //+kubebuilder:resource:scope=Cluster
 //+kubebuilder:subresource:status
 //+kubebuilder:printcolumn:name=LastUnpacked,type=date,JSONPath=`.status.lastUnpacked`
+//+kubebuilder:printcolumn:name="Serving",type=string,JSONPath=`.status.conditions[?(@.type=="Serving")].status`
 //+kubebuilder:printcolumn:name=Age,type=date,JSONPath=`.metadata.creationTimestamp`
 
 // ClusterCatalog is the Schema for the ClusterCatalogs API

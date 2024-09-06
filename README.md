@@ -87,9 +87,14 @@ Procedure steps marked with an asterisk (`*`) are likely to change with future A
       Conditions:
         Last Transition Time:  2023-06-23T18:35:13Z
         Message:               
-        Reason:                Unpacking
+        Reason:                Progressing
         Status:                False
-        Type:                  Unpacked
+        Type:                  Succeeded
+        Last Transition Time:  2023-06-23T18:35:13Z
+        Message:               
+        Reason:                Serving
+        Status:                True
+        Type:                  Available
     Events:                    <none>
     ```
 

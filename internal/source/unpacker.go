@@ -61,19 +61,8 @@ type Result struct {
 
 type State string
 
-const (
-	// StatePending conveys that a request for unpacking a catalog has been
-	// acknowledged, but not yet started.
-	StatePending State = "Pending"
-
-	// StateUnpacking conveys that the source is currently unpacking a catalog.
-	// This state should be used when the catalog contents are being downloaded
-	// and processed.
-	StateUnpacking State = "Unpacking"
-
-	// StateUnpacked conveys that the catalog has been successfully unpacked.
-	StateUnpacked State = "Unpacked"
-)
+// StateUnpacked conveys that the catalog has been successfully unpacked.
+const StateUnpacked State = "Unpacked"
 
 type unpacker struct {
 	sources map[catalogdv1alpha1.SourceType]Unpacker

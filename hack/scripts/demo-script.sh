@@ -19,7 +19,7 @@ kubectl apply -f config/samples/core_v1alpha1_catalog.yaml
 # shows catalog-sample
 kubectl get catalog -A 
 # waiting for catalog to report ready status
-time kubectl wait --for=condition=Unpacked catalog/operatorhubio --timeout=1m
+time kubectl wait --for=condition=Serving catalog/operatorhubio --timeout=1m
 
 # port forward the catalogd-catalogserver service to interact with the HTTP server serving catalog contents
 (kubectl -n olmv1-system port-forward svc/catalogd-catalogserver 8080:80)&

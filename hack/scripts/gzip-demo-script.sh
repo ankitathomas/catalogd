@@ -9,7 +9,7 @@ kubectl apply -f $HOME/devel/tmp/operatorhubio-clustercatalog.yaml
 # shows catalog
 kubectl get clustercatalog -A 
 # waiting for clustercatalog to report ready status
-time kubectl wait --for=condition=Unpacked clustercatalog/operatorhubio --timeout=1m
+time kubectl wait --for=condition=Serving clustercatalog/operatorhubio --timeout=1m
 
 # port forward the catalogd-catalogserver service to interact with the HTTP server serving catalog contents
 (kubectl -n olmv1-system port-forward svc/catalogd-catalogserver 8080:443)&
