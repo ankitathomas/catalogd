@@ -5,7 +5,7 @@ trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
 make run
 
 # create a clustercatalog
-kubectl apply -f $HOME/devel/tmp/operatorhubio-clustercatalog.yaml
+kubectl apply -f config/samples/core_v1alpha1_clustercatalog.yaml
 # shows catalog
 kubectl get clustercatalog -A 
 # waiting for clustercatalog to report ready status
